@@ -24,8 +24,8 @@ if [ -d "/etc/cloud" ]; then
 	yum-config-manager --enable rhui-REGION-rhel-server-extras
 	yum-config-manager --enable rhui-REGION-rhel-server-optional
 fi
-yum install -y git wget zile nano net-tools docker ansible \
-python-cryptography pyOpenSSL.x86_64 python2-pip \
+yum install -y git wget nano net-tools docker ansible \
+python-cryptography pyOpenSSL.x86_64 \
 openssl-devel python-devel httpd-tools NetworkManager python-passlib \
 java-1.8.0-openjdk-headless "@Development Tools"
 
