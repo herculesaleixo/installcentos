@@ -84,9 +84,9 @@ if [ "$memory" -lt "8388608" ]; then
 	export LOGGING="False"
 fi
 
-curl -o inventory.download $SCRIPT_REPO/inventory-v2.ini
-envsubst < inventory.download > inventory-v2.ini
-ansible-playbook -i inventory-v2.ini openshift-ansible/playbooks/byo/config.yml
+curl -o inventory.download $SCRIPT_REPO/inventory-cloud.ini
+envsubst < inventory.download > inventory-cloud.ini
+ansible-playbook -i inventory-cloud.ini openshift-ansible/playbooks/byo/config.yml
 
 htpasswd -b /etc/origin/master/htpasswd ${USERNAME} ${PASSWORD}
 oc adm policy add-cluster-role-to-user cluster-admin ${USERNAME}
