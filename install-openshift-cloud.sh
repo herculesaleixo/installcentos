@@ -86,7 +86,8 @@ fi
 
 curl -o inventory.download $SCRIPT_REPO/inventory-cloud.ini
 envsubst < inventory.download > inventory-cloud.ini
-ansible-playbook -i inventory-cloud.ini openshift-ansible/playbooks/byo/config.yml
+ansible-playbook -i inventory-cloud.ini openshift-ansible/playbooks/prerequisites.yml
+ansible-playbook -i inventory-cloud.ini openshift-ansible/playbooks/deploy_cluster.yml
 
 htpasswd -b /etc/origin/master/htpasswd ${USERNAME} ${PASSWORD}
 oc adm policy add-cluster-role-to-user cluster-admin ${USERNAME}
